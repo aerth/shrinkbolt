@@ -50,6 +50,7 @@ func TestShrink(t *testing.T) {
 	if stat2Size > stat1Size*8/10 { // 20% shrink at least
 		t.Fatalf("expected shrink from %d bytes: got %d bytes", stat1Size, stat2Size)
 	}
+	t.Logf("shrunk db from %d to %d bytes", stat1Size, stat2Size)
 
 	// TODO: tests to check db2 has required values from db1
 
@@ -101,7 +102,7 @@ func testExpand(t *testing.T) {
 			t.Fatal(err)
 		}
 		size2 := stat.Size()
-		log.Println("grew db from", size1, "to", size2, "bytes")
+		t.Log("grew db from", size1, "to", size2, "bytes")
 	}()
 	defer db1.Close()
 
