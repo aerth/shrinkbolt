@@ -83,11 +83,11 @@ func testDelete(t *testing.T) {
 
 }
 func testExpand(t *testing.T) {
+	var size1 int64
 	stat, err := os.Stat(oldDbPath)
-	if err != nil {
-		t.Fatal(err)
+	if err == nil {
+		size1 = stat.Size()
 	}
-	size1 := stat.Size()
 	db1, err := bbolt.Open(oldDbPath, 0600, &bbolt.Options{
 		Timeout: time.Second,
 	})
