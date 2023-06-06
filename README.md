@@ -2,7 +2,7 @@
 
 ### shrink bolt (bbolt) database
 
-data is not copied to RAM, so this may be suitable for extra large bolt database files.
+entire database is not copied to RAM at once, so this may be suitable for extra large bolt database files.
 
 **untested, use at your own risk.**
 
